@@ -89,8 +89,9 @@ WSGI_APPLICATION = "helptick.wsgi.application"
 #    }
 #}
 
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse("postgresql://neondb_owner:npg_fBtaxs09rciH@ep-billowing-haze-a2s84fk4.eu-central-1.aws.neon.tech/cleat_cupid_cider_760727?sslmode=require&options=endpoint%3Dep-billowing-haze-a2s84fk4")
 }
 
 
