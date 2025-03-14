@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+
 def dashboard(request):
-    return HttpResponse("Dashboard")
+    return render(request, 'dashboard/customer_dashboard.html')
