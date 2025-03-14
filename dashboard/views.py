@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
-
+@login_required
 def dashboard(request):
-    return render(request, 'dashboard/customer_dashboard.html')
+    user = request.user  # Get the currently logged-in user
+    if user.is_customer:  # Check if the user is a customer
+        return render(request, 'dashboard/customer_dashboard.html', {'user': user})

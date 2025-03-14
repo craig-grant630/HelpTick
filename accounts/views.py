@@ -31,7 +31,7 @@ def login_customer(request):
         user = authenticate(request, username=username, password=password)
         if user is not None and user.is_active:
             login(request, user)
-            return redirect(request, 'dashboard')
+            return redirect('dashboard')
         else:
             messages.error(request, "Somthing went wrong. Please check the form again")
             return redirect('login')
@@ -41,4 +41,4 @@ def login_customer(request):
 def logout_customer(request):
     logout(request)
     messages.success(request, "You have successfully been logged out")
-    return redirect(request, 'login')
+    return redirect('login')
