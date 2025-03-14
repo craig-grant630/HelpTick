@@ -24,7 +24,7 @@ def register_customer(request):
         form = RegisterCustomerForm()
         return render(request, 'accounts/register-customer.html', {'form':form} )
 
-def login_customer():
+def login_customer(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
