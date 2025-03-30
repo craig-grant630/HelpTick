@@ -10,7 +10,7 @@ User = get_user_model()
 def register_customer(request):
     if request.method == 'POST': # Posting the form
         form = RegisterCustomerForm(request.POST)
-        if form.is_vaild():
+        if form.is_valid():
             new_user = form.save(commit=False) # save the form but do not push the changes
             new_user.is_customer = True # Change users is_customer to true
             new_user.username = new_user.email # Make sure the email is the username
