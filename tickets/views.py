@@ -1,6 +1,35 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+import random
+import string
+from django.db import IntegrityError
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth import get_user_model
+from .forms import CreateTicketForm
+from .models import Ticket
 
-# Create your views here.
-def ticket(request):
-    return HttpResponse("Tickets")
+User = get_user_model()
+
+#Create Tickets View
+def create_ticket(request):
+    if request.method == 'POST':
+        form = CreateTicketForm(request.POST)
+        if form.is_valid():
+            new_ticket = form.save(commit=False)
+            new_ticket.customer = request.user
+            while not var.ticket_id:
+                id = ''.join(random.choices(string.digits, k=6))
+                try:
+                    new_ticket.ticket_id = id
+                    new_ticket.save()
+                    messages.success(request, 'Your ticket has been submitted. A Support Engineer would reach out soon.')
+                    return redirect('') # This will redirect to customers ongoing tickets
+                    # break
+                except IntegrityError: # handle errors gracefully - to catch the IntegrityError that might arise when trying to save the ticket with a duplicate ticket ID.
+                    continue
+        else:
+            messages.warning(request, 'Something went wrong. Please check form errors')
+            return redirect('create-ticket')
+    else:
+        form = CreateTicketForm()
+        context = {'form':form}
+        return render(request, 'tickets/create_ticket.html', context)
