@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
+{% load humanize %}
 {% block content %}
-<h1>test</h1>
-<h3>{{ticket.ticket_title}}</h3>
-{{active_tickets}}
-{{ tickets }}
+<h2> Active Tickets: {{active_tickets}}</h2>
+<hr>
+<div class="row row-cols-1 row-cols-md-4">
+    {% for ticket in tickets %}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h4 class="card-title">{{ticket.ticket_title}} #{{ticket.ticket_id}}</h4>
+                <p class="card-text">
+                    {{ticket.ticket_description}}
+                </p>
+            </div>
+            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+            <div class="card-footer">
+                <small class="text-muted">Created {{ticket.created_on|naturaltime}}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}
