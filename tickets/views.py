@@ -33,3 +33,8 @@ def create_ticket(request):
         form = CreateTicketForm()
         context = {'form':form}
         return render(request, 'tickets/create_ticket.html', context)
+
+def customer_active_tickets(request):
+    tickets = Ticket.objects.filter(customer=request.user, is_resolved=False).order_by('created_on')
+    context = {'tickets':tickets}
+    return render(request, 'ticket/customer_active_tickets.html', context)
