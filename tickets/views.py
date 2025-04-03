@@ -16,13 +16,13 @@ def create_ticket(request):
         if form.is_valid():
             new_ticket = form.save(commit=False)
             new_ticket.customer = request.user
-            while not var.ticket_id:
+            while not new_ticket.ticket_id:
                 id = ''.join(random.choices(string.digits, k=6))
                 try:
                     new_ticket.ticket_id = id
                     new_ticket.save()
                     messages.success(request, 'Your ticket has been submitted. A Support Engineer would reach out soon.')
-                    return redirect('') # This will redirect to customers ongoing tickets
+                    return redirect('customer-active-tickets') # This will redirect to customers ongoing tickets
                     # break
                 except IntegrityError: # handle errors gracefully - to catch the IntegrityError that might arise when trying to save the ticket with a duplicate ticket ID.
                     continue
@@ -36,5 +36,6 @@ def create_ticket(request):
 
 def customer_active_tickets(request):
     tickets = Ticket.objects.filter(customer=request.user, is_resolved=False).order_by('created_on')
-    context = {'tickets':tickets}
-    return render(request, 'ticket/customer_active_tickets.html', context)
+    active_tickets = Ticket.objects.filter(customer=request.user, is_resolved=False).count
+    context = {'tickets':tickets, 'active_tickets':active_tickets}
+    return render(request, 'tickets/customer_active_tickets.html', context)
