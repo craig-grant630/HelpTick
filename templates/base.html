@@ -23,20 +23,31 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Link</a>
-                    </li>
+                    {% if user.is_customer %}
                     <li class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            data-bs-toggle="dropdown" aria-expanded="false">Tickets</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a href="" class="dropdown-item">Action</a></li>
+                            <li><a href="" class="dropdown-item">Active Tickets</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a href="" class="dropdown-item">Action</a></li>
+                            <li><a href="" class="dropdown-item">Resolved Tickets</a></li>
                         </ul>
                     </li>
+                    {% elif user.is_engineer %}
+                    <li class="nav-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Ticket Infomation</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a href="" class="dropdown-item">Active Tickets</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a href="" class="dropdown-item">Resolved Tickets</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
                     {% if request.user.is_authenticated%}
                     <li class="nav-item">
                         <a href="#" class="nav-link disabled" aria-disabled="true" tabindex="-1">{{request.user.email}}</a>
