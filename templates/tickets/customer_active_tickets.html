@@ -10,9 +10,12 @@
             <div class="card-body">
                 <h4 class="card-title">{{ticket.ticket_title}} #{{ticket.ticket_id}}</h4>
                 <p class="card-text">
-                    {{ticket.ticket_description}}
+                    {% if ticket.status == 'Pending' %}
+                    <span class="badge bg-warning">{{ticket.status}}</span>
+                    {% endif%}
                 </p>
             </div>
+            
             <a href="#" class="btn btn-primary btn-sm">View Details</a>
             <div class="card-footer">
                 <small class="text-muted">Created {{ticket.created_on|naturaltime}}</small>
@@ -21,4 +24,5 @@
     </div>
     {% endfor %}
 </div>
+<hr>
 {% endblock content %}
