@@ -39,3 +39,8 @@ def customer_active_tickets(request):
     active_tickets = Ticket.objects.filter(customer=request.user, is_resolved=False).count
     context = {'tickets':tickets, 'active_tickets':active_tickets}
     return render(request, 'tickets/customer_active_tickets.html', context)
+
+def ticket_details(request, ticket_id):
+    ticket = Ticket.objects.get(ticket_id=ticket_id)
+    context = {'ticket':ticket}
+    return render(request, 'tickets/ticket_details.html', context)
