@@ -40,7 +40,14 @@ def customer_active_tickets(request):
     context = {'tickets':tickets, 'active_tickets':active_tickets}
     return render(request, 'tickets/customer_active_tickets.html', context)
 
+# To view tickets in moe details
 def ticket_details(request, ticket_id):
     ticket = Ticket.objects.get(ticket_id=ticket_id)
     context = {'ticket':ticket}
     return render(request, 'tickets/ticket_details.html', context)
+
+# View tickets that have not been assigned engineers
+def ticket_queue(request):
+    tickets = Ticket.objects.filter(is_assigned_to_engineer=False)
+    context = {'tickets':tickets}
+    return render(request, 'tickets/ticket_queue.html', context)
