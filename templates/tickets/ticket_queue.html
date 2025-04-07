@@ -2,6 +2,17 @@
 
 {% block content %}
 
+<!-- Search Form -->
+
+<div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Ticket ID</span>
+    </div>
+    <form method="get" class="mb-3 form">
+        <input type="text" name="search" value="{{ search_query }}" class="form-control" placeholder="Search by Ticket ID" autocomplete="on">
+    </form>
+  </div>
+
 <div class="card">
     <div class="card-body">
         <table class="table">
@@ -15,15 +26,21 @@
                 </tr>
             </thead>
             <tbody>
-                {% for ticket in tickets %}
-                <tr>
-                    <td><a href="{% url 'ticket-details' ticket.ticket_id %}">{{ticket.ticket_id}}</a></td>
-                    <td>{{ticket.ticket_title}}</td>
-                    <td>{{ticket.customer}}</td>
-                    <td>{{ticket.created_on}}</td>
-                    <td><a href="{% url 'assign-ticket' ticket.ticket_id %}" class="btn btn-outline-primary btn-sm">Assign to Engineer</a></td>
-                </tr>
-                {% endfor %}
+                {% if tickets %}
+                    {% for ticket in tickets %}
+                        <tr>
+                            <td><a href="{% url 'ticket-details' ticket.ticket_id %}">{{ticket.ticket_id}}</a></td>
+                            <td>{{ticket.ticket_title}}</td>
+                            <td>{{ticket.customer}}</td>
+                            <td>{{ticket.created_on}}</td>
+                            <td><a href="{% url 'assign-ticket' ticket.ticket_id %}" class="btn btn-outline-primary btn-sm">Assign to Engineer</a></td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5">No tickets found matching your search.</td>
+                    </tr>
+                {% endif %}
             </tbody>
         </table>
     </div>

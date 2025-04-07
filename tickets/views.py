@@ -46,10 +46,19 @@ def ticket_details(request, ticket_id):
     context = {'ticket':ticket}
     return render(request, 'tickets/ticket_details.html', context)
 
-# View tickets that have not been assigned engineers
 def ticket_queue(request):
-    tickets = Ticket.objects.filter(is_assigned_to_engineer=False) # ticket model filtered by not assigned to engineer
-    context = {'tickets':tickets}
+    # Get the search query from the GET parameters
+    search_query = request.GET.get('search', '')
+    
+    if search_query:
+        tickets = Ticket.objects.filter(
+            is_assigned_to_engineer=False,
+            ticket_id__icontains=search_query  # Filters based on ticket id
+        )
+    else:
+        tickets = Ticket.objects.filter(is_assigned_to_engineer=False)
+    
+    context = {'tickets': tickets, 'search_query': search_query}
     return render(request, 'tickets/ticket_queue.html', context)
 
 def assign_ticket(request, ticket_id):
