@@ -8,4 +8,15 @@ body{
 .shadows{
     box-shadow: 5px 5px 5px rgb(13, 110, 253, 0.2);
 }
-/* Customer active tickets */
+/* tickets details*/
+.small{
+    margin: 10px;
+    width: 150px;
+}
+
+@media screen and (max-width: 768px) {
+    .small{
+        width: 100px;
+    }
+    
+  }
