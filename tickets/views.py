@@ -80,3 +80,8 @@ def assign_ticket(request, ticket_id):
         form.fields['engineer'].queryset = User.objects.filter(is_engineer=True)
         context = {'form':form, 'ticket':ticket}
         return render(request, 'tickets/assign_ticket.html', context)
+
+def engineer_active_tickets(request):
+    tickets = Ticket.objects.filter(engineer=request.user, is_resolved=False).order_by('-created_on')
+    context = {'tickets':tickets}
+    return render(request, 'tickets/engineer_active_tickets.html', context)
