@@ -30,15 +30,15 @@
                 </p>
             </div>
             <div class="col-md-10 mx-auto col-lg-5">
-            {% if messages %}
+                {% if messages %}
                 {% for message in messages%}
                 <div class="alert alert-primary" role="alert">
                     <b>{{ message }}</b>
                 </div>
                 {% endfor %}
-            {% endif %}
-            {% block content %}
-            {% endblock content %}
+                {% endif %}
+                {% block content %}
+                {% endblock content %}
             </div>
         </div>
     </div>
