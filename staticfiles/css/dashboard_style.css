@@ -1,7 +1,53 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+body {
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
-.shadows{
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+/* Dashboards */
+.shadows {
+    box-shadow: 5px 5px 5px rgb(13, 110, 253, 0.2);
+}
+
+/* Tickets details */
+#resolve-screen-hidden {
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5); /* Transparent background */
+    justify-content: center;
+    align-items: center;
+    display: none; /* Hidden by default */
+    top: 0;
+    left: 0;
+    flex-direction: column;
+}
+
+.resolve-form {
+    height: 60%;
+    width: 50%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#close {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+#close i {
+    font-size: 30px;
+    color: #333;
+}
+
+@media screen and (max-width: 768px) {
+    .small {
+        width: 200px;
+    }
 }
