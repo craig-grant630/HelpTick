@@ -5,7 +5,7 @@
     <div class="col-md-6">
         <div class=" py-5">
             <h1 class="display-6 fw-bold">{{ticket.ticket_title}}</h1>
-            <p class="">
+            <p class="form-control">
                 {{ticket.ticket_description}}
             </p>
             {% if ticket.status == 'Pending' %}
@@ -29,13 +29,24 @@
                         <li><b>Ticket Unique ID:</b> {{ticket.ticket_id}}</li>
                         <li><b>Customer:</b> {{ticket.customer}}</li>
                         <li><b> Engineer:</b> {{ticket.engineer}}</li>
+                        {% if ticket.is_resolved %}
+                        <li><b>Modified On:</b> {{ticket.last_modified}}</li>
+                        {% endif %}
                         <li><b>Created On:</b> {{ticket.created_on}}</li>
-                        <li><b>Severity:</b> {{ticket.severity}}</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+    {% if ticket.is_resolved %}
+    <div class="card mt-5">
+        <div class="card-body">
+            <h5 class="card-title">Resolution Steps</h5>
+            {{ticket.resolution_steps}}
+        </div>
+    </div>
+    {% endif %}
+    <hr>
     {% if user.is_engineer %}
     <div class="resolve-button">
         <button class="btn btn-warning mt-3" data-type="resolve-btn">Resolve</button>
