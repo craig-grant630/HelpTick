@@ -8,4 +8,5 @@ urlpatterns = [
     path('ticket-queue/', views.ticket_queue, name='ticket-queue'),
     path('assign-ticket/<str:ticket_id>/', views.assign_ticket, name='assign-ticket'),
     path('engineer-active-tickets/', views.engineer_active_tickets, name='engineer-active-tickets'),
+    path('resolve-ticket/<str:ticket_id>/', views.resolve_ticket, name='resolve-ticket'),
 ]

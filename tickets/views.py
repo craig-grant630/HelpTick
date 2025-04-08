@@ -85,3 +85,14 @@ def engineer_active_tickets(request):
     tickets = Ticket.objects.filter(engineer=request.user, is_resolved=False).order_by('-created_on')
     context = {'tickets':tickets}
     return render(request, 'tickets/engineer_active_tickets.html', context)
+
+def resolve_ticket(request, ticket_id):
+    ticket = Ticket.objects.get(ticket_id=ticket_id)
+    if request.method == 'POST':
+        rs = request.POST.get('rs')
+        ticket.resolution_steps = rs  
+        ticket.is_resolved = True
+        ticket.status = 'Resolved'
+        ticket.save()
+        messages.success(request, 'Ticket is now resolved and closed')
+        return redirect('dashboard')

@@ -47,7 +47,7 @@
             <div id="close" data-type="close-btn"><i class="fa-solid fa-x"></i></div>
             <div id="resolve-description">
                 <h5>Resolution Steps</h5>
-                <form action="#" method="POST"> <!-- action resolve view needs created -->
+                <form action="{% url 'resolve-ticket' ticket.ticket_id%}" method="POST"> <!-- action resolve view needs created -->
                     {% csrf_token %}
                     <div class="mb-3">
                         <label class="form-label">Here's how the issue was resolved</label>
