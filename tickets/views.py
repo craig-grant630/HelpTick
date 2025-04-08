@@ -96,3 +96,9 @@ def resolve_ticket(request, ticket_id):
         ticket.save()
         messages.success(request, 'Ticket is now resolved and closed')
         return redirect('dashboard')
+
+def customer_resolved_tickets(request):
+    tickets = Ticket.objects.filter(customer=request.user, is_resolved=True).order_by('-created_on')
+    resolved_tickets = Ticket.objects.filter(customer=request.user, is_resolved=True).count
+    context = {'tickets':tickets}
+    return render(request, 'tickets/customer_resolved_tickets.html', context)

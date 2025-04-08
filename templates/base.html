@@ -35,7 +35,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a href="" class="dropdown-item">Resolved Tickets</a></li>
+                            <li><a href="{% url 'customer-resolved-tickets' %}" class="dropdown-item">Resolved Tickets</a></li>
                         </ul>
                     </li>
                     {% elif user.is_engineer %}
