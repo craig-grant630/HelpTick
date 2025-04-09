@@ -102,3 +102,9 @@ def customer_resolved_tickets(request):
     resolved_tickets = Ticket.objects.filter(customer=request.user, is_resolved=True).count
     context = {'tickets':tickets}
     return render(request, 'tickets/customer_resolved_tickets.html', context)
+
+def engineer_resolved_tickets(request):
+    tickets = Ticket.objects.filter(engineer=request.user, is_resolved=True).order_by('-created_on')
+    resolved_tickets = Ticket.objects.filter(engineer=request.user, is_resolved=True).count
+    context = {'tickets':tickets}
+    return render(request, 'tickets/customer_resolved_tickets.html', context)
