@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block content %}
-
+<h2> Active Tickets: {{active_tickets}}</h2>
 <div class="row row-cols-1 row-cols-md-4 g-4">
     {% for ticket in tickets %}
     <div class="col">

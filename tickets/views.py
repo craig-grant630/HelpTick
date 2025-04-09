@@ -83,7 +83,8 @@ def assign_ticket(request, ticket_id):
 
 def engineer_active_tickets(request):
     tickets = Ticket.objects.filter(engineer=request.user, is_resolved=False).order_by('-created_on')
-    context = {'tickets':tickets}
+    active_tickets = Ticket.objects.filter(engineer=request.user, is_resolved=False).count
+    context = {'tickets':tickets, 'active_tickets':active_tickets}
     return render(request, 'tickets/engineer_active_tickets.html', context)
 
 def resolve_ticket(request, ticket_id):
@@ -100,11 +101,11 @@ def resolve_ticket(request, ticket_id):
 def customer_resolved_tickets(request):
     tickets = Ticket.objects.filter(customer=request.user, is_resolved=True).order_by('-created_on')
     resolved_tickets = Ticket.objects.filter(customer=request.user, is_resolved=True).count
-    context = {'tickets':tickets}
+    context = {'tickets':tickets, 'resolved_tickets':resolved_tickets}
     return render(request, 'tickets/customer_resolved_tickets.html', context)
 
 def engineer_resolved_tickets(request):
     tickets = Ticket.objects.filter(engineer=request.user, is_resolved=True).order_by('-created_on')
     resolved_tickets = Ticket.objects.filter(engineer=request.user, is_resolved=True).count
-    context = {'tickets':tickets}
-    return render(request, 'tickets/customer_resolved_tickets.html', context)
+    context = {'tickets':tickets, 'resolved_tickets':resolved_tickets}
+    return render(request, 'tickets/engineer_resolved_tickets.html', context)
