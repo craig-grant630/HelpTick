@@ -14,40 +14,73 @@
 
 <body>
     <main>
-    <div class="container col-xl-10 col-xxl-8 px-4 d-flex justify-content-center align-items-center">
-        <div class="row align-items-center g-lg-4">
-            <div class="col-lg-7 text-center text-lg-start texting">
-                <h1 class="display-4 fw-bold lh-1">{% block heading %} {% endblock heading%}</h1>
-                <hr class="short-hr">
-                <p class="col-lg-10 fs-4">
-                    {% if request.path == '/accounts/login/' %}
-                    Welcome Back! Access your account to manage tickets, track inventory, and stay updated on events.
-                    {% elif request.path == '/accounts/logout/' %}
-                    You’ve Logged Out Successfully! Your session has ended. See you again soon!
-                    {% elif request.path == '/accounts/register-customer/' %}
-                    Join Our Ticket Inventory System! Sign up now to manage tickets and stay on top of ticket sales.
-                    {% endif %}
-                </p>
-            </div>
-            <div class="col-md-10 mx-auto col-lg-5">
-                {% if messages %}
-                {% for message in messages%}
-                <div class="alert alert-primary" role="alert">
-                    <b>{{ message }}</b>
+        <div class="container col-xl-10 col-xxl-8 px-4 d-flex justify-content-center align-items-center">
+            <div class="row align-items-center g-lg-4">
+                <div class="col-lg-7 text-center text-lg-start texting">
+                    <h1 class="display-4 fw-bold lh-1">{% block heading %} {% endblock heading%}</h1>
+                    <hr class="short-hr">
+                    <p class="col-lg-10 fs-4">
+                        {% if request.path == '/accounts/login/' %}
+                        Welcome Back! Access your account to manage tickets, track inventory, and stay updated on
+                        events.
+                        {% elif request.path == '/accounts/logout/' %}
+                        You’ve Logged Out Successfully! Your session has ended. See you again soon!
+                        {% elif request.path == '/accounts/register-customer/' %}
+                        Join Our Ticket Inventory System! Sign up now to manage tickets and stay on top of ticket sales.
+                        {% endif %}
+                    </p>
                 </div>
-                {% endfor %}
-                {% endif %}
-                {% block content %}
-                {% endblock content %}
+                <div class="col-md-10 mx-auto col-lg-5">
+                    {% if messages %}
+                    {% for message in messages%}
+                    <div class="alert alert-primary" role="alert">
+                        <b>{{ message }}</b>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% block content %}
+                    {% endblock content %}
+                </div>
             </div>
         </div>
-    </div>
     </main>
     <footer>
         <div class="container">
-            <p></p>
+            <section class="mb-4">
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon facebook" a
+                    href="https://www.Facebook.com/" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our facebook page(opens in new tab)">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon twitter"
+                    href="https://x.com/?lang=en" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our twitter page(opens in new tab)">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon google"
+                    href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwiAj_atsNCMAxWQVUEAHeZRBEQQPAgI"
+                    role="button" target="_blank" rel="noopener" aria-label="Visity our google page(opens in new tab)">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon instagram"
+                    href="https://www.instagram.com/" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our instagram page(opens in new tab)">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon linkedin"
+                    href="https://uk.linkedin.com/" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our linkedin page(opens in new tab)">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon github"
+                    href="https://github.com/" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our github page(opens in new tab)">
+                    <i class="fab fa-github"></i>
+                </a>
+            </section>
         </div>
     </footer>
+    <script src="https://kit.fontawesome.com/2d15dd04c5.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

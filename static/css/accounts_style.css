@@ -1,26 +1,31 @@
 
+body{
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
 main {
-        font-family: 'Arial', sans-serif;
-        background-color: #f1f3f5;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f3f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* When input is focused, change label color */
-.form-floating input:focus + label {
+.form-floating input:focus+label {
     color: #0d6efd;
     text-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
 }
 
-.title-colour{
-    color:#0d6efd;
+.title-colour {
+    color: #0d6efd;
 }
 
-.shadows{
+.shadows {
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -38,11 +43,16 @@ button {
 }
 
 .short-hr {
-    width: 90%; /* Make the hr shorter */
-    margin: 0 10px; /* Center the hr */
-    border: 1px solid #0d6efd; /* Add a custom color for the hr */
-    margin-top: 20px; /* Adjust space above hr */
-    margin-bottom: 20px; /* Adjust space below hr */
+    width: 90%;
+    /* Make the hr shorter */
+    margin: 0 10px;
+    /* Center the hr */
+    border: 1px solid #0d6efd;
+    /* Add a custom color for the hr */
+    margin-top: 20px;
+    /* Adjust space above hr */
+    margin-bottom: 20px;
+    /* Adjust space below hr */
 }
 
 /* Footer styles */
@@ -52,15 +62,10 @@ footer {
     text-align: center;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-footer a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    height: 70px;
 }
 
 footer .container {
@@ -68,8 +73,51 @@ footer .container {
     margin: 0 auto;
 }
 
-@media screen and (max-width: 500px) {
-    main {
-        height: 120vh;
-    }
+/* Base style for all social buttons */
+.social-icon {
+    color: #333;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Facebook */
+.social-icon.facebook:hover {
+    background-color: #3b5998;
+    color: #fff;
+    border-color: #3b5998;
+}
+
+/* Twitter */
+.social-icon.twitter:hover {
+    background-color: #1da1f2;
+    color: #fff;
+    border-color: #1da1f2;
+}
+
+/* Google */
+.social-icon.google:hover {
+    background-color: #db4437;
+    color: #fff;
+    border-color: #db4437;
+}
+
+/* Instagram */
+.social-icon.instagram:hover {
+    background-color: #e1306c;
+    color: #fff;
+    border-color: #e1306c;
+}
+
+/* LinkedIn */
+.social-icon.linkedin:hover {
+    background-color: #0077b5;
+    color: #fff;
+    border-color: #0077b5;
+}
+
+/* GitHub */
+.social-icon.github:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
 }

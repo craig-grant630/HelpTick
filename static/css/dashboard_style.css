@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
-body {
-    height: 100vh;
+body{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  
     font-family: 'Roboto', sans-serif;
+    flex:1;
 }
 
 /* Dashboards */
@@ -128,6 +138,72 @@ body {
     width:100%;
   }
 
+  /* Footer styles */
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  color: #333;
+  margin-top: 20px;
+  height: 70px;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Base style for all social buttons */
+.social-icon {
+  color: #333;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Facebook */
+.social-icon.facebook:hover {
+  background-color: #3b5998;
+  color: #fff;
+  border-color: #3b5998;
+}
+
+/* Twitter */
+.social-icon.twitter:hover {
+  background-color: #1da1f2;
+  color: #fff;
+  border-color: #1da1f2;
+}
+
+/* Google */
+.social-icon.google:hover {
+  background-color: #db4437;
+  color: #fff;
+  border-color: #db4437;
+}
+
+/* Instagram */
+.social-icon.instagram:hover {
+  background-color: #e1306c;
+  color: #fff;
+  border-color: #e1306c;
+}
+
+/* LinkedIn */
+.social-icon.linkedin:hover {
+  background-color: #0077b5;
+  color: #fff;
+  border-color: #0077b5;
+}
+
+/* GitHub */
+.social-icon.github:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
   @media screen and (max-width: 576px) {
     .header-bg {
         height:40px;
@@ -137,4 +213,5 @@ body {
     .profile-card{
       width:180px;
     }
+
 }
