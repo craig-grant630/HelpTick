@@ -2,8 +2,10 @@
 {% load static %}
 {% load humanize %}
 {% block content %}
-<h2> Resolved Tickets: {{resolved_tickets}}</h2>
-<hr>
+
+<div class="one">
+  <h1>Resolved Tickets:<span> {{resolved_tickets}} </span></h1>
+</div>
 <div class="row row-cols-1 row-cols-md-4">
   {% for ticket in tickets %}
   <div class="col">

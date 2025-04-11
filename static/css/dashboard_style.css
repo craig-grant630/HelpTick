@@ -54,6 +54,39 @@ body {
 
 /* Cards for active and resolved pages */
 
+.one h1 {
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+  }
+  .one h1:before {
+    width: 28px;
+    height: 5px;
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    margin-left: -14px;
+    background-color: #4d7cfe;
+}
+  .one h1:after {
+    width: 100px;
+    height: 1px;
+    display: block;
+    content: "";
+    position: relative;
+    margin-top: 15px;
+    left: 50%;
+    margin-left: -50px;
+    background-color: #4d7cfe;
+  }
+
+  .one h1 span{
+    font-weight: 400;
+  }
+
 .profile-card {
     width: 200px;
     background: #fff;
