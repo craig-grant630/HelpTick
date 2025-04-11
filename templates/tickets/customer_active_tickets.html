@@ -1,26 +1,28 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load static %}
 {% block content %}
 <h2> Active Tickets: {{active_tickets}}</h2>
 <hr>
 <div class="row row-cols-1 row-cols-md-4">
   {% for ticket in tickets %}
   <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h4 class="card-title">{{ticket.ticket_title}} #{{ticket.ticket_id}}</h4>
-        <p class="card-text">
-          {% if ticket.status == 'Pending' %}
-          <span class="badge bg-warning">Pending</span>
-          {% elif ticket.status == 'Active' %}
-          <span class="badge bg-success">Active</span>
-          {% elif ticket.status == 'Resolved' %}
-          <span class="badge bg-danger">Resolved</span>
-          {% endif %}
-        </p>
+    <div class="profile-card">
+      <div class="header-bg"> {{ ticket.ticket_title }}</div>
+      <i class="far fa-heart"></i>
+      <h2 class="name">{{ticket.ticket_id}}</h2>
+      <p class="title">
+        {% if ticket.status == 'Pending' %}
+        <span class="badge bg-warning">Pending</span>
+        {% elif ticket.status == 'Active' %}
+        <span class="badge bg-success">Active</span>
+        {% elif ticket.status == 'Resolved' %}
+        <span class="badge bg-danger">Resolved</span>
+        {% endif %}
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary btn-sm" href="{% url 'ticket-details' ticket.ticket_id %}">View Details</a>
       </div>
-
-      <a href="{% url 'ticket-details' ticket.ticket_id %}" class="btn btn-primary btn-sm">View Details</a>
       <div class="card-footer">
         <small class="text-muted">Created {{ticket.created_on|naturaltime}}</small>
       </div>
