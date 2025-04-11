@@ -6,7 +6,7 @@ Welcome to <span class="title-colour text-shadow">HelpTick</span>
 {% endblock heading %}
 
 {% block content %}
-<form class="p-4 p-md-5 border rounded-3 bg-light shadows" method="POST">
+<form class="p-4 p-md-4 p-xs-2 border rounded-3 bg-light shadows" method="POST">
     {% csrf_token %}
     <div class="form-floating mb-3">
         {% render_field form.email class="form-control" %}
