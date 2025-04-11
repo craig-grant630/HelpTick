@@ -13,6 +13,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    height:100vh;
 }
 
 /* When input is focused, change label color */
@@ -63,8 +64,6 @@ footer {
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     color: #333;
-    position: fixed;
-    bottom: 0;
     height: 70px;
 }
 
