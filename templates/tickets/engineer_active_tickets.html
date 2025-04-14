@@ -6,7 +6,8 @@
 <div class="one">
   <h1>Active Tickets:<span> {{active_tickets}} </span></h1>
 </div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+<button onclick="window.history.back();" class="btn btn-outline-primary btn-sm">Go Back</button>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-3 mb-3">
   {% for ticket in tickets %}
   <div class="col">
     <div class="profile-card">
@@ -32,6 +33,17 @@
   </div>
   {% endfor %}
 </div>
+</div>
+<ul class="pagination justify-content-center">
+  {% if page_obj.has_previous %}
+  <li>
+    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+  </li>
+  {% endif %}
+  {% if page_obj.has_next %}
+  <li>
+    <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+  </li>
+  {% endif %}
 <hr>
-<button onclick="window.history.back();" class="btn btn-primary">Go Back</button>
 {% endblock content %}

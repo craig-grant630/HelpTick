@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from .forms import CreateTicketForm, AssignTicketForm
 from .models import Ticket
+from django.core.paginator import Paginator
 
 User = get_user_model()
 
@@ -35,9 +36,18 @@ def create_ticket(request):
         return render(request, 'tickets/create_ticket.html', context)
 
 def customer_active_tickets(request):
-    tickets = Ticket.objects.filter(customer=request.user, is_resolved=False).order_by('-created_on') #sort via create on date in reverse andticket has not been resolved
-    active_tickets = Ticket.objects.filter(customer=request.user, is_resolved=False).count
-    context = {'tickets':tickets, 'active_tickets':active_tickets}
+    ticket_list = Ticket.objects.filter(customer=request.user, is_resolved=False).order_by('-created_on')
+    paginator = Paginator(ticket_list, 8)  # Show 8 tickets per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    active_tickets = ticket_list.count()
+    context = {
+        'tickets': page_obj.object_list, 
+        'active_tickets': active_tickets,
+        'page_obj': page_obj,             # for pagination controls
+    }
     return render(request, 'tickets/customer_active_tickets.html', context)
 
 # To view tickets in more details
@@ -82,9 +92,18 @@ def assign_ticket(request, ticket_id):
         return render(request, 'tickets/assign_ticket.html', context)
 
 def engineer_active_tickets(request):
-    tickets = Ticket.objects.filter(engineer=request.user, is_resolved=False).order_by('-created_on')
-    active_tickets = Ticket.objects.filter(engineer=request.user, is_resolved=False).count
-    context = {'tickets':tickets, 'active_tickets':active_tickets}
+    ticket_list = Ticket.objects.filter(engineer=request.user, is_resolved=False).order_by('-created_on')
+    paginator = Paginator(ticket_list, 8)  # Show 8 tickets per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    active_tickets = ticket_list.count()
+    context = {
+        'tickets': page_obj.object_list, 
+        'active_tickets': active_tickets,
+        'page_obj': page_obj,             # for pagination controls
+    }
     return render(request, 'tickets/engineer_active_tickets.html', context)
 
 def resolve_ticket(request, ticket_id):
@@ -99,13 +118,31 @@ def resolve_ticket(request, ticket_id):
         return redirect('dashboard')
 
 def customer_resolved_tickets(request):
-    tickets = Ticket.objects.filter(customer=request.user, is_resolved=True).order_by('-created_on')
-    resolved_tickets = Ticket.objects.filter(customer=request.user, is_resolved=True).count
-    context = {'tickets':tickets, 'resolved_tickets':resolved_tickets}
+    ticket_list = Ticket.objects.filter(customer=request.user, is_resolved=True).order_by('-created_on')
+    paginator = Paginator(ticket_list, 8)  # Show 8 tickets per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    resolved_tickets = ticket_list.count()
+    context = {
+        'tickets': page_obj.object_list, 
+        'resolved_tickets': resolved_tickets,
+        'page_obj': page_obj,             # for pagination controls
+    }
     return render(request, 'tickets/customer_resolved_tickets.html', context)
 
 def engineer_resolved_tickets(request):
-    tickets = Ticket.objects.filter(engineer=request.user, is_resolved=True).order_by('-created_on')
-    resolved_tickets = Ticket.objects.filter(engineer=request.user, is_resolved=True).count
-    context = {'tickets':tickets, 'resolved_tickets':resolved_tickets}
+    ticket_list = Ticket.objects.filter(engineer=request.user, is_resolved=True).order_by('-created_on')
+    paginator = Paginator(ticket_list, 8)  # Show 4 tickets per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    resolved_tickets = ticket_list.count()
+    context = {
+        'tickets': page_obj.object_list, 
+        'resolved_tickets': resolved_tickets,
+        'page_obj': page_obj,             # for pagination controls
+    }
     return render(request, 'tickets/engineer_resolved_tickets.html', context)
