@@ -11,3 +11,61 @@ For support staff and admins, HelpTick provides a clear dashboard to manage and 
 
 Another key inspiration for HelpTick was observing the challenges small to mid-sized businesses face when trying to implement structured support systems without investing in complex or expensive tools. Many teams rely on scattered emails, spreadsheets, or informal communication, which often results in missed issues and poor customer satisfaction. HelpTick aims to democratize access to professional support ticketing by offering a simple yet powerful solution that's easy to adopt, customize, and scale — ensuring even smaller teams can provide organized and timely support without getting overwhelmed.
 
+## User Experience
+
+**Project Goals:** The primary goal of HelpTick is to streamline the support process by providing a centralized platform where customers can easily report issues and support teams can efficiently manage and resolve them. The project aims to enhance communication, improve response times, and ensure transparency throughout the ticket lifecycle. By offering role-based dashboards, intuitive forms, and status tracking, HelpTick empowers users to stay informed and engaged. 
+
+### User Story
+
+Beginning the project there was a user story template made, this provided a the fundamentals for the Helptick app to ensure quick development (These screenshots are found in readme images).
+
+</details>
+<details>
+  
+<summary>Customers</summary>
+
+As a customer, I want to be able to log in and register so that I can use the HelpTick platform.
+
+- I can sign up/register for a HelpTick account.
+- I can log in to HelpTick and access my Customer Dashboard.
+- I can log out of HelpTick when I’m done using the service.
+
+<ins>Customer Dashboard</ins>
+
+As a customer, I want to access a centralized dashboard to manage my support interactions having access to the customer dashboard after logging in.
+
+The Customer dashboard provides access to:
+
+- Create a new support ticket
+- View active (unresolved) tickets
+- View resolved tickets
+
+<ins>Create Ticket</ins>
+
+As a customer, I want to be able to submit a ticket when I need help.
+
+- I can fill out a form to create a new ticket.
+- The form will have the customer include the ticket title and ticket description.
+
+<ins>Unresolved Tickets</ins>
+
+As a customer, I want to see all open tickets that I have created.
+
+- I can view a list of all unresolved tickets that I’ve submitted.
+- I can view the details of each unresolved ticket.
+- The tickets are filtered based on their status in the ticket model.
+
+<ins>Resolved Tickets</ins>
+
+As a customer, I want to review tickets that have been completed by the support team.
+
+- I can view all tickets that have been resolved.
+
+<ins>Ticket Details</ins>
+
+As a customer, I want to be able to examine tickets in detail.
+
+- I can view the details of each ticket that I’ve created.
+- This will show: title, description, status, modified date.
+  
+</details>
