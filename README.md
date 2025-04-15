@@ -69,3 +69,35 @@ As a customer, I want to be able to examine tickets in detail.
 - This will show: title, description, status, modified date.
   
 </details>
+
+<details>
+  <summary>Engineers/staff</summary>
+
+Engineers can sign up and log in to HelpTick through dedicated authentication pages.
+
+- Enineers can log in to HelpTick and access my Engineers Dashboard.
+- Engineers can log out of HelpTick when I’m done using the service.
+
+<ins>Engineer Dashboard</ins>
+
+As a engineer, I want to access a centralized dashboard to manage my support interactions having access to the engineers dashboard after logging in.
+
+The engineers dashboard provides access to:
+
+- View active (unresolved) tickets.
+- View resolved tickets.
+
+Engineers can:
+
+- View detailed ticket information submitted by customers.
+- Monitor the status and severity of each ticket.
+- Access a Resolution Form to provide detailed resolution steps for active tickets.
+
+Once a ticket is resolved:
+
+It moves to the Resolved Tickets section.
+
+- Engineers can still access it for review or auditing purposes.
+
+This workflow ensures engineers can stay organized, prioritize tasks, and maintain efficient communication with customers.
+</details>
