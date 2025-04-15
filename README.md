@@ -19,6 +19,8 @@ Another key inspiration for HelpTick was observing the challenges small to mid-s
 
 Beginning the project there was a user story template made, this provided a the fundamentals for the Helptick app to ensure quick development:
 ![Register Page/Home Page](./static/image/readme/HelpTickUserStoryAdmin.png)
+![Register Page/Home Page](./static/image/readme/HelpTickUserStoryEng.png)
+![Register Page/Home Page](./static/image/readme/HelpTickuserstoryCustomer.png)
 
 
 **Customer, Admin and Engineer User Story Description**
@@ -102,4 +104,13 @@ It moves to the Resolved Tickets section.
 - Engineers can still access it for review or auditing purposes.
 
 This workflow ensures engineers can stay organized, prioritize tasks, and maintain efficient communication with customers.
+</details>
+
+<details>
+<summary>Admin</summary>
+
+- As an admin, I can log in to HelpTick and access a dedicated admin dashboard.
+- I can view all tickets submitted by customers, regardless of their status (Active, In Progress, Resolved).
+- I can assign tickets to engineers based on availability, workload, or expertise.
+  
 </details>
