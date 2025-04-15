@@ -33,11 +33,18 @@
                         <li><b>Modified On:</b> {{ticket.last_modified}}</li>
                         {% endif %}
                         <li><b>Created On:</b> {{ticket.created_on}}</li>
-                        (% if user.is_customer %)
-                        <a href="{% url 'delete-ticket' ticket.ticket_id %}" class="btn btn-sm btn-danger">
+                        {% if user.is_customer %}
+                        <a href="{% url 'delete-ticket' ticket.ticket_id %}" class="btn btn-sm btn-danger mt-4">
                             Delete
                           </a>
-                        {% end if %}
+                        {% if user.is_customer %}
+                        {% if ticket.status == 'Active' or ticket.status == 'Pending' %}
+                        <a href="{% url 'edit-ticket-description' ticket.ticket_id %}" class="btn btn-warning btn-sm mt-4">
+                            Edit Description
+                        </a>
+                        {% endif %}
+                        {% endif %}
+                        {% endif %}
                     </ul>
                 </div>
             </div>

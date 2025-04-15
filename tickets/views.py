@@ -4,7 +4,7 @@ from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-from .forms import CreateTicketForm, AssignTicketForm
+from .forms import CreateTicketForm, AssignTicketForm, EditTicketForm
 from .models import Ticket
 from django.core.paginator import Paginator
 
@@ -155,3 +155,16 @@ def delete_ticket(request, ticket_id):
         return redirect('dashboard')
     context = {'tickets': tickets}
     return render(request, 'tickets/delete_ticket_confirm.html', context)
+
+def edit_ticket_description(request, ticket_id):
+    ticket = Ticket.objects.get(ticket_id=ticket_id)
+
+    if request.method == 'POST':
+        form = EditTicketForm(request.POST, instance=ticket)
+        if form.is_valid():
+            form.save()
+            return redirect('ticket-details', ticket_id=ticket_id)
+    else:
+        form = EditTicketForm(instance=ticket)
+
+    return render(request, 'tickets/edit_description.html', {'form': form, 'ticket': ticket})

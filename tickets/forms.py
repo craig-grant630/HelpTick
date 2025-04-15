@@ -10,3 +10,8 @@ class AssignTicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
         fields = ['engineer']
+
+class EditTicketForm(forms.ModelForm):
+    class Meta:
+        model = Ticket
+        fields = ['ticket_description']
