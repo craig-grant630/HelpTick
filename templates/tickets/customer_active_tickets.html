@@ -24,6 +24,9 @@
       </p>
       <div class="buttons">
         <a class="btn btn-primary btn-sm" href="{% url 'ticket-details' ticket.ticket_id %}">View Details</a>
+        <a href="{% url 'delete-ticket' ticket.ticket_id %}" class="btn btn-sm btn-danger">
+          Delete
+        </a>
       </div>
       <div class="card-footer">
         <small class="text-muted">Created {{ticket.created_on|naturaltime}}</small>

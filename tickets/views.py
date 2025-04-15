@@ -146,3 +146,12 @@ def engineer_resolved_tickets(request):
         'page_obj': page_obj,             # for pagination controls
     }
     return render(request, 'tickets/engineer_resolved_tickets.html', context)
+
+def delete_ticket(request, ticket_id):
+    tickets = Ticket.objects.get(ticket_id=ticket_id)
+    if request.method == 'POST':
+        tickets.delete()
+        messages.success(request, "Your ticket has been deleted.")
+        return redirect('dashboard')
+    context = {'tickets': tickets}
+    return render(request, 'tickets/delete_ticket_confirm.html', context)
