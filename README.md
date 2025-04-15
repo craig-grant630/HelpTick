@@ -17,9 +17,11 @@ Another key inspiration for HelpTick was observing the challenges small to mid-s
 
 ### User Story
 
-Beginning the project there was a user story template made, this provided a the fundamentals for the Helptick app to ensure quick development (These screenshots are found in readme images).
+Beginning the project there was a user story template made, this provided a the fundamentals for the Helptick app to ensure quick development:
+![Register Page/Home Page](./static/image/readme/HelpTickUserStoryAdmin.png)
 
-</details>
+
+**Customer, Admin and Engineer User Story Description**
 <details>
   
 <summary>Customers</summary>
