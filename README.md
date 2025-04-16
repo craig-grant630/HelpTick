@@ -118,3 +118,112 @@ This workflow ensures engineers can stay organized, prioritize tasks, and mainta
 **Project Board**
 
 ![Project Board](./documents/readme/projectboard.png)
+
+### Design
+
+**Colours**
+
+Base Colors:
+
+Light Gray Background: **#f8f9fa**
+
+- Often used for soft, light backgrounds like sections or cards.
+
+Light Gray for Borders:**#dee2e6**
+
+- These shades are used for subtle borders, input fields, or secondary elements.
+
+Dark Background (Navbar, Footer): **#343a40**
+
+- Used for darker background areas like the navbar or footer.
+
+Dark Text: **#212529**
+
+- Used for text on dark backgrounds, or for darker, high-contrast text elements.
+
+Blue for border shading:**#007bff**
+
+- Used for texture to make the borders have more enhancement.
+
+<img src="./documents/readme/basecolours.png" width="300" />
+
+**Secondary Colours**
+
+Color: $success: **#28a745**
+
+- Green, used for success actions or to show active tickets.
+
+Warning Button: **#ffc107**
+
+ - Yellow, often used for actions that need attention but aren’t critical like editing tickets.
+
+Danger Button: **#dc3545**
+
+- To show that tickets have been resolved or deletion of tickets.
+
+Primary Buttons: **#007bff**
+
+- These are mainly used throghout the website to naviagte.
+
+<img src="./documents/readme/secondarycolours.png" width="300" />
+
+### Features
+
+<ins>Authourization Pages</ins>
+
+Login and Register Page:
+
+- The login and register pages features a clean, minimalist design with a centered form that allows users to easily input there details.
+- Login Page requires the user to enter their email and password.
+- Register Page requires the user to enter email, password and confirm password.
+
+|  Login Page  |  Register Page  |
+|:-----|:--------:|
+| <img src="./documents/features/login.png" width="400" /> | <img src="./documents/features/registerpage.png" width="400" />|
+
+<ins>Customer Features</ins>
+
+Customer Dashboard
+
+- Personalized welcome message with user's email
+- Option to create a new ticket
+
+Logout button
+
+- Register / Create New Ticket Page
+- Simple form to input ticket title and description
+- "Submit" button to create a ticket
+
+View Active Tickets
+
+- Display of all currently active tickets
+- Each ticket shows title, ticket ID, and creation time
+- Buttons to View Details or Delete the ticket
+
+View Resolved Tickets
+
+- Display of all resolved tickets
+- Each resolved ticket includes title, ticket ID, creation time
+- Buttons to View Details or Delete the ticket
+
+Active/Pending Ticket Details
+
+- Detailed view of a selected ticket
+- Includes status, subject, customer email, assigned agent, and timestamps
+- Option to delete the ticket
+
+Resolved Ticket Details
+
+- Similar to active ticket detail view
+- Displays resolution info, status, and ticket metadata
+- Option to delete the ticket
+
+|  Customer Dashboard  |  Register Page  |
+|:-----|:--------:|
+| <img src="./documents/features/customerdash.png" width="400" /> | <img src="./documents/features/createnewticket.png" width="400" />|
+|  **Customers Active Tickets**  |  **Customers Resolved Tickets**  |
+| <img src="./documents/features/customeractivetickets.png" width="400" /> | <img src="./documents/features/customerresolvedtickets.png" width="400" />|
+|  **Customers Active/Pending Tickets Details**  |  **Customers Resolved Ticket Details**  |
+| <img src="./documents/features/customerpendingdetails.png" width="400" /> | <img src="./documents/features/customerresolveddetails.png" width="400" />|
+|  **Delete Tickets**  |  **Edit Tickets**  |
+| <img src="./documents/features/deleteticket.png" width="400" /> | |
