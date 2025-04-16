@@ -18,9 +18,9 @@ Another key inspiration for HelpTick was observing the challenges small to mid-s
 ### User Story
 
 Beginning the project there was a user story template made, this provided a the fundamentals for the Helptick app to ensure quick development:
-![Register Page/Home Page](./documents/readme/HelpTickUserStoryAdmin.png)
-![Register Page/Home Page](./documents/readme/HelpTickUserStoryEng.png)
-![Register Page/Home Page](./documents/readme/HelpTickuserstoryCustomer.png)
+![Admin User Story](./documents/readme/HelpTickUserStoryAdmin.png)
+![Engineer User Stroy](./documents/readme/HelpTickUserStoryEng.png)
+![Customer User Story](./documents/readme/HelpTickuserstoryCustomer.png)
 
 
 **Customer, Admin and Engineer User Story Description**
@@ -114,3 +114,7 @@ This workflow ensures engineers can stay organized, prioritize tasks, and mainta
 - I can assign tickets to engineers based on availability, workload, or expertise.
   
 </details>
+
+**Project Board**
+
+![Project Board](./documents/readme/projectboard.png)
