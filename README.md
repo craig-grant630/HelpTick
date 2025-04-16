@@ -226,4 +226,11 @@ Resolved Ticket Details
 |  **Customers Active/Pending Tickets Details**  |  **Customers Resolved Ticket Details**  |
 | <img src="./documents/features/customerpendingdetails.png" width="400" /> | <img src="./documents/features/customerresolveddetails.png" width="400" />|
 |  **Delete Tickets**  |  **Edit Tickets**  |
-| <img src="./documents/features/deleteticket.png" width="400" /> | |
+| <img src="./documents/features/deleteticket.png" width="400" /> | <img src="./documents/features/customereditticket.png" width="400" /> |
+
+<ins> Adminastrors Features </ins>
+|  Admins Dashboard  |  Ticket Queue   |
+|:-----|:--------:|
+| <img src="./documents/features/admindash.png" width="400" /> | <img src="./documents/features/adminticketqueue.png" width="400" />|
+|  **Assign Ticket**  |  **Admins Ticket Details**  |
+| <img src="./documents/features/assignticket.png" width="400" /> | <img src="./documents/features/adminsticketdetails.png" width="400" />|
