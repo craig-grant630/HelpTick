@@ -31,6 +31,7 @@
                         <li><b>Modified On:</b> {{ticket.last_modified}}</li>
                         {% endif %}
                         <li><b>Created On:</b> {{ticket.created_on}}</li>
+                    </ul>
                         {% if user.is_customer %}
                         <a href="{% url 'delete-ticket' ticket.ticket_id %}" class="btn btn-sm btn-danger mt-4">
                             Delete
@@ -43,7 +44,6 @@
                         {% endif %}
                         {% endif %}
                         {% endif %}
-                    </ul>
                 </div>
             </div>
         </div>
