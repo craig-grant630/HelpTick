@@ -218,7 +218,7 @@ Resolved Ticket Details
 - Displays resolution info, status, and ticket metadata
 - Option to delete the ticket
 
-|  Customer Dashboard  |  Register Page  |
+|  Customer Dashboard  |  Create New Ticket  |
 |:-----|:--------:|
 | <img src="./documents/features/customerdash.png" width="400" /> | <img src="./documents/features/createnewticket.png" width="400" />|
 |  **Customers Active Tickets**  |  **Customers Resolved Tickets**  |
@@ -234,3 +234,13 @@ Resolved Ticket Details
 | <img src="./documents/features/admindash.png" width="400" /> | <img src="./documents/features/adminticketqueue.png" width="400" />|
 |  **Assign Ticket**  |  **Admins Ticket Details**  |
 | <img src="./documents/features/assignticket.png" width="400" /> | <img src="./documents/features/adminsticketdetails.png" width="400" />|
+
+<ins> Engineer Features </ins>
+
+|  Engineer Dashboard  | Engineers Active Tickets  |
+|:-----|:--------:|
+| <img src="./documents/features/engineerdash.png" width="400" /> | <img src="./documents/features/engineeractivetickets.png" width="400" />|
+|  **Engineer Active ticket Details**  |  **Engineers Resolved Tickets**  |
+| <img src="./documents/features/engineeractiveticketdetails.png" width="400" /> | <img src="./documents/features/engineerresolvedtickets.png" width="400" />|
+|  **Engineer Resolved Ticket Details**  |  **Resolution Form**  |
+| <img src="./documents/features/engineerresolvedticketdetails.png" width="400" /> | <img src="./documents/features/engineerresolution.png" width="400" />|
