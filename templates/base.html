@@ -50,12 +50,11 @@
                     {% endif %}
                     {% if request.user.is_authenticated%}
                     <li class="nav-item">
-                        <a href="#" class="nav-link disabled" aria-disabled="true" tabindex="-1">{{request.user.email}}</a>
+                        <a class="nav-link disabled" aria-disabled="true" tabindex="-1">{{request.user.email}}</a>
                     </li>
                     {% endif %}
                 </ul>
                 <a href="{% url 'logout' %}" class="btn btn-outline-warning btn-sm">Log Out</a>
-                </ul>
             </div>
         </div>
     </nav>
@@ -70,12 +69,11 @@
             {% endif %}
         {% block content %}
         {% endblock content %}
-    </div>
     </main>
     <footer>
         <div class="container">
             <section class="mb-4">
-                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon facebook" a
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon facebook"
                     href="https://www.Facebook.com/" role="button" target="_blank" rel="noopener"
                     aria-label="Visity our facebook page(opens in new tab)">
                     <i class="fab fa-facebook-f"></i>
