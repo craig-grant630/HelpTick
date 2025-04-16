@@ -1,10 +1,8 @@
 {% extends 'accounts/base.html' %}
 {% load widget_tweaks %}
-
 {% block heading %}
 Welcome to <span class="title-colour text-shadow">HelpTick</span>
 {% endblock heading %}
-
 {% block content %}
 <form class="p-4 p-md-4 p-xs-2 border rounded-3 bg-light shadows" method="POST">
     {% csrf_token %}
@@ -20,7 +18,6 @@ Welcome to <span class="title-colour text-shadow">HelpTick</span>
         {% render_field form.password2 class="form-control" %}
         <label for="floatingInput">Confirm Password</label>
     </div>
-
     <button class="w-100 btn btn-lg btn-primary" type="submit">
         Sign Up
     </button>

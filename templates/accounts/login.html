@@ -1,9 +1,7 @@
 {% extends 'accounts/base.html' %}
-
 {% block heading %}
 <span class="title-colour text-shadow">Log in</span> to continue...
 {% endblock heading %}
-
 {% block content %}
 <form class="p-4 p-md-5 border rounded-3 bg-light shadows" method="POST">
     {% csrf_token %}
