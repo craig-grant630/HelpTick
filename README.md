@@ -188,12 +188,10 @@ Customer Dashboard
 - Personalized welcome message with user's email
 - Option to create a new ticket
 
-Logout button
+Create New Ticket Button
 
-- Register / Create New Ticket Page
-- Simple form to input ticket title and description
-- "Submit" button to create a ticket
-
+- Simplistic button to navigate to creat new ticket
+- 
 View Active Tickets
 
 - Display of all currently active tickets
@@ -229,6 +227,27 @@ Resolved Ticket Details
 | <img src="./documents/features/deleteticket.png" width="400" /> | <img src="./documents/features/customereditticket.png" width="400" /> |
 
 <ins> Adminastrors Features </ins>
+
+Administrators Dashboard
+
+-  Personalized welcome message with user's email.
+- Button to view active tickets that have not been resolved.
+
+Ticket Queue
+
+- Page shows all tickets that have not been resolved va table form.
+- There is a link on the left that redirects to ticket details.
+- Assign ticket button allows the admin to assign ticket to engineer.
+
+Assign Ticket
+
+- Simplistic form design that allows admins to choose from a list of engineers.
+
+Admins Ticket Details
+
+- Ticket detail view
+- Displays ticket info, status, and ticket metadata
+
 |  Admins Dashboard  |  Ticket Queue   |
 |:-----|:--------:|
 | <img src="./documents/features/admindash.png" width="400" /> | <img src="./documents/features/adminticketqueue.png" width="400" />|
@@ -237,6 +256,39 @@ Resolved Ticket Details
 
 <ins> Engineer Features </ins>
 
+Engineer Dashboard
+
+- Personalized welcome message with user's email
+- Button to view active tickets
+
+Logout button
+
+- Simple button to log out a redirect to login page
+
+View Active Tickets
+
+- Display of all currently active tickets
+- Each ticket shows title, ticket ID, and creation time
+- Buttons to View Details of the ticket
+
+View Resolved Tickets
+
+- Display of all resolved tickets
+- Each resolved ticket includes title, ticket ID, creation time
+- Buttons to View Details of the ticket
+
+Active Ticket Details
+
+- Detailed view of a selected ticket
+- Includes status, subject, customer email, assigned agent, and timestamps
+- Option to resolve the ticket
+
+Resolved Ticket Details
+
+- Similar to active ticket detail view
+- Displays resolution info, status, and ticket metadata
+- Option to edit the resolution details
+
 |  Engineer Dashboard  | Engineers Active Tickets  |
 |:-----|:--------:|
 | <img src="./documents/features/engineerdash.png" width="400" /> | <img src="./documents/features/engineeractivetickets.png" width="400" />|
@@ -244,3 +296,34 @@ Resolved Ticket Details
 | <img src="./documents/features/engineeractiveticketdetails.png" width="400" /> | <img src="./documents/features/engineerresolvedtickets.png" width="400" />|
 |  **Engineer Resolved Ticket Details**  |  **Resolution Form**  |
 | <img src="./documents/features/engineerresolvedticketdetails.png" width="400" /> | <img src="./documents/features/engineerresolution.png" width="400" />|
+
+## Testing
+
+<details>
+  
+<summary>User Story Testing</summary>
+
+|  Story Title  | Acceptance Creteria |  Pass/Fail |
+|:-----|:--------:|:--------: |
+|  Set up Basics |<ul><li>Create the Helptick apps (ticket, users and dashboards)</li><li>Early deployment for app on Heroku (set up on settings)</li><li>Connect Code Institutes Postgres Database in environment variables</li><li>Hide secret key in environment variables</li></ul> | Pass |
+|  Custom User Model  | <ul><li>Add is_engineer and is_customer to the model to identify the differences in the user</li></ul> |  Pass |
+|  Ticket Model  | <ul><li>Make sure customers can have many tickets.</li><li>Ticket Title and description for creating tickets. </li> <li>Status of Active, Pending and resolved for active views and resolved views </li></ul> |  Pass |
+| Create Superuser | <ul><li>The admin will be able to create an engineer in the admin Screen </li> <li>The admin will be able to edit and modify users and tickets</li><ul> |  Pass |
+|  Authentication Pages Customer  | <ul><li>As a customer user I can signup/register for HelpTick.</li><li> As a customer I can login to HelpTick and once registered have access to Customer Dashboard.</li><li>As a customer I can logout of HelpTick after logging in</li></ul>|  Pass |
+|  Authentication Pages Engineer  | <ul><li>As a engineer user I can signup/register for HelpTick.</li><li> As a engineer I can login to HelpTick and once registered have to Engineer Dashboard.</li><li>As a engineer I can logout of HelpTick after logging in</li></ul>|  Pass |
+|  Authentication Pages Admin  | <ul><li>As a Admin user I can signup/register for HelpTick.</li><li> As a Admin I can login to HelpTick and once registered have to Admin Dashboard.</li><li>As a Admin I can logout of HelpTick after logging in</li></ul>|  Pass |
+|  Customer Dashboard  | <ul><li>The customer can access customer dashboard</li><li>The customer dashboard will give access to creating tickets, view active/unresolved tickets and resolved tickets</li></ul> |  Pass |
+|  Admin Dashboard  | <ul><li>As the admin I can access the admin dashboard</li><li>The Admin dashboard will give access to all tickets that have not been assigned engineers called 'Ticket Queue'</li></ul>|  Pass |
+|  Engineer Dashboard  | <ul><li>As the engineer I can access the engineers dashboard</li><li>The engineer dashboard will give access to all tickets that have been assigned to that specific engineer</li><li>The engineer dashboard will give access to all previously resolved tickets by that specific engineer</li></ul>|  Pass |
+|  Create Ticket  | <ul><li>Creating a ticket will require a form</li><li>Creating a ticket will require the customer to provide a ticket title</li><li>Creating a ticket will require a description of the problem the user has</li></ul> |  Pass |
+|  Unresolved tickets  | <ul><li>As an customer I can view all tickets that I have created which will be filtered on the tickets model</li><li>As a customer I can access the ticket details that have populated</li></ul> |  Pass |
+| Ticket Queue  | <ul><li>This will require filtering on the tickets model where engineer is not assigned</li></ul> |  Pass |
+|  Assign Ticket  | <ul><li>The form will need to include a list of all engineers that have been created system</li><ul> |  Pass |
+|  Unresolved Tickets Engineer  | <ul><li>As an engineer I can view all tickets assigned to me - which will be filtered on the tickets model</li><li>As a engineer I access view the ticket detail in order to resolve</li><ul> |  Pass |
+|  Unresolved Ticket Details Customer  | <ul><li>The customer can view a detailed ticket that has not been resolved</li><ul> |  Pass |
+|  Resolution Form  | <ul><li>Resolution form will need resolution steps</li><ul> |  Pass |
+|  Ticket Details Engineer  | <ul><li>As an engineer I can view the tickets details that have been populated by the customer</li><li> As an engineer I can choose to resolve the ticket</li><ul> |  Pass |
+|  Resolved Tickets engineer | <ul><li>As an engineer I can view all tickets resolved by me which will be filtered on the tickets model</li><li>As a engineer I can view the ticket detail in order to edit resolution</li><ul> |  Pass |
+|  Resolved Tickets Customer | <ul><li>As a customer I will be able to view the details of these resolved tickets</li><ul> |  Pass |
+
+</details>
