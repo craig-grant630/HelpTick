@@ -303,6 +303,8 @@ Resolved Ticket Details
   
 <summary>User Story Testing</summary>
 
+During testing, each story is evaluated to ensure that the implemented feature meets the acceptance criteria and delivers the expected value to the user. This type of testing helps ensure alignment between user expectations and the final product, encourages collaboration between developers, testers, and stakeholders, and supports an agile, behavior-driven development cycle.
+
 |  Story Title  | Acceptance Creteria |  Pass/Fail |
 |:-----|:--------:|:--------: |
 |  Set up Basics |<ul><li>Create the Helptick apps (ticket, users and dashboards)</li><li>Early deployment for app on Heroku (set up on settings)</li><li>Connect Code Institutes Postgres Database in environment variables</li><li>Hide secret key in environment variables</li></ul> | Pass |
@@ -325,5 +327,72 @@ Resolved Ticket Details
 |  Ticket Details Engineer  | <ul><li>As an engineer I can view the tickets details that have been populated by the customer</li><li> As an engineer I can choose to resolve the ticket</li><ul> |  Pass |
 |  Resolved Tickets engineer | <ul><li>As an engineer I can view all tickets resolved by me which will be filtered on the tickets model</li><li>As a engineer I can view the ticket detail in order to edit resolution</li><ul> |  Pass |
 |  Resolved Tickets Customer | <ul><li>As a customer I will be able to view the details of these resolved tickets</li><ul> |  Pass |
+
+</details>
+
+**Manual Testing**
+
+<ins>Login Page</ins>
+
+<img src="./documents/features/login.png" width="700" />
+
+<details>
+<summary> Login Page Tests </summary>
+  
+`Page Load:`
+- Ensure login Page loads correctly with all bootstrap and custom CSS. **(Pass)**
+    
+ `Form Load:`
+- Ensure the login form and all its components load correctly on the page. **(Pass)**
+
+ `Valid Login:`
+- Input a correct username/email and password.
+- Expected Result: Successful login and redirection to the dashboard or home screen. **(Pass)**
+
+`Invalid Credentials:`
+- Input an incorrect username/email or password.
+- Expected Result: An appropriate error message is displayed  **(Pass)**
+
+`Empty Fields:`
+- Attempt to log in without entering any values.
+- Expected Result: Validation errors should prompt the user to fill in the fields. **(Pass)**
+  
+`Email Format Validation:`
+- Input an invalid email format (e.g., userexample.com)
+- Expected Result: Frontend validation should prevent form submission **(Pass)**
+
+</details>
+
+<hr>
+<ins>Register Page</ins>
+<img src="./documents/features/registerpage.png" width="700" />
+
+<details>
+<summary> Register Page Tests </summary>
+
+`Page Load:`
+- Ensure login Page loads correctly with all bootstrap and custom CSS. **(Pass)**
+
+ `Form Load:`
+- Ensure the login form and all its components load correctly on the page. **(Pass)**
+
+`Valid Registration:`
+- Fill out the form with valid data in all fields.
+- Expected Result: Account is successfully created, and user is redirected to the login page. **(Pass)**
+
+`Empty Fields:`
+
+- Submit the form with one or more fields left empty.
+- Expected Result: Validation errors prompt the user to complete all required fields.**(Pass)**
+
+`Email Format Validation:`
+
+- Enter an improperly formatted email (e.g., user@com, user.com).
+- Expected Result: The system should block submission and show a validation message.**(Pass)**
+
+`Password Confirmation Mismatch:`
+
+- Enter different values in the password and confirm password fields.
+- Expected Result: The form should not submit and display an error.**(Pass)**
 
 </details>
