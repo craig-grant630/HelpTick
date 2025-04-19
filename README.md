@@ -347,19 +347,19 @@ During testing, each story is evaluated to ensure that the implemented feature m
 
  `Valid Login:`
 - Input a correct username/email and password.
-- Expected Result: Successful login and redirection to the dashboard or home screen. **(Pass)**
+  - Expected Result: Successful login and redirection to the dashboard or home screen. **(Pass)**
 
 `Invalid Credentials:`
 - Input an incorrect username/email or password.
-- Expected Result: An appropriate error message is displayed  **(Pass)**
+  - Expected Result: An appropriate error message is displayed  **(Pass)**
 
 `Empty Fields:`
 - Attempt to log in without entering any values.
-- Expected Result: Validation errors should prompt the user to fill in the fields. **(Pass)**
+  - Expected Result: Validation errors should prompt the user to fill in the fields. **(Pass)**
   
 `Email Format Validation:`
 - Input an invalid email format (e.g., userexample.com)
-- Expected Result: Frontend validation should prevent form submission **(Pass)**
+  - Expected Result: Frontend validation should prevent form submission **(Pass)**
 
 </details>
 
@@ -374,25 +374,64 @@ During testing, each story is evaluated to ensure that the implemented feature m
 - Ensure login Page loads correctly with all bootstrap and custom CSS. **(Pass)**
 
  `Form Load:`
-- Ensure the login form and all its components load correctly on the page. **(Pass)**
+  - Ensure the login form and all its components load correctly on the page. **(Pass)**
 
 `Valid Registration:`
 - Fill out the form with valid data in all fields.
-- Expected Result: Account is successfully created, and user is redirected to the login page. **(Pass)**
+  - Expected Result: Account is successfully created, and user is redirected to the login page. **(Pass)**
 
 `Empty Fields:`
 
 - Submit the form with one or more fields left empty.
-- Expected Result: Validation errors prompt the user to complete all required fields.**(Pass)**
+  - Expected Result: Validation errors prompt the user to complete all required fields.**(Pass)**
 
 `Email Format Validation:`
 
 - Enter an improperly formatted email (e.g., user@com, user.com).
-- Expected Result: The system should block submission and show a validation message.**(Pass)**
+  - Expected Result: The system should block submission and show a validation message.**(Pass)**
 
 `Password Confirmation Mismatch:`
 
 - Enter different values in the password and confirm password fields.
-- Expected Result: The form should not submit and display an error.**(Pass)**
+  - Expected Result: The form should not submit and display an error.**(Pass)**
 
 </details>
+
+<hr>
+<ins>Customer Dashboard</ins>
+
+<img src="./documents/features/customerdash.png" width="700" />
+
+<details>
+
+<summary>Customer Dashboard Tests</summary>
+
+`Dashboard Load`
+- Ensure the dashboard loads successfully after customer login.
+  - Expected Result: navigation menus and content appear without errors. **(Pass)**
+
+`Welcome Message`
+- Verify that the dashboard displays a personalized welcome message including the user email. **(Pass)**
+
+`Create New Ticket`
+
+- Ensure once button is clicked it will show the create new ticket form. **(Pass)**
+- Ensure that both ticket title and ticket details need to be filled out in order to submit a new ticket. **(Pass)**
+- Ensure the the go back button will take you back to the page you were previously on. **(Pass)**
+- Once titcket form is valid ensure the submit button creates a new ticket (this can be viewd on the active tickets page). **(Pass)**
+
+`Navigation bar`
+
+- Responsive Behavior: Resize the browser or use a mobile device to test responsiveness.
+  - Expected Result: Navbar collapses into a hamburger menu or adjusts layout cleanly. **(Pass)**
+- Links Routing: Click each nav item (e.g., HelpTick logo, Active Tickets, Resolved Tickets and Logout) and confirm redirection.
+  - Expected Result: Pages load correctly with appropriate content. **(Pass)**
+- Logout Button Test the logout link or button from the navbar.
+  - Expected Result: User is securely logged out and redirected to the login page. **(Pass)**
+
+</details>
+<hr>
+
+<ins>Customer Active Tickets</ins>
+
+<img src="./documents/features/customeractivetickets.png" width="700" />
