@@ -297,6 +297,20 @@ Resolved Ticket Details
 |  **Engineer Resolved Ticket Details**  |  **Resolution Form**  |
 | <img src="./documents/features/engineerresolvedticketdetails.png" width="400" /> | <img src="./documents/features/engineerresolution.png" width="400" />|
 
+## Information Architecture
+
+Database choice
+
+- Development phase SQLight database was used for the development which is installed with Django.
+- Deployment phase PostgreSQL was used on deployment stage, which is provided as add-on by Heroku application.
+
+Data Modeling
+Following is Entity Relationship Diagram of this project:
+
+
+<img src="./documents/readme/ERD.png" width="800" />
+
+
 ## Testing
 
 <details>
@@ -777,3 +791,84 @@ Python Validator - tools used: [CI Python Code validator](https://pep8ci.herokua
 This tool was used for all custom Python in the application. To test this:
 
 - Directly input the custom JS code into the validator. **(Pass)**
+
+### Deployment
+
+Heroku Deployment
+
+This website is deployed on Heroku, following these steps:
+
+1. Install these packages to your local environment, since these packages are required to deploy a Django project on Heroku.
+  - gnicorn: gnicorn is Python WSGI(web server gataway interface) server for UNIX.
+  - psycopg2-binary: psycopg2-binary is PostgreSQL database adapter for the Python programming language.
+  - dj-database-url: dj-database-url allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+2. Create a requirements.txt file and freeze all the modules with the command pip3 freeze > requirements.txt in the terminal.
+3. Create a Procfile write web: gunicorn boutique_ado.wsgi:application in the file.
+4. git add and git commit and git push all the changes to the Github repositoty of this project.
+5. Go to Heroku and create a new app. Set a name for this app and select the closest region (Europe) and click Create app.
+6. Go to Resources tab in Heroku, then in the Add-ons search bar look for Heorku Postgres(you can type postgres), select Hobby Dev — Free and click Submit Order Form button to add it to your project.
+7. In the heroku dashboard for the application, click on Setting > Reveal Config Vars and set the values as follows:
+
+| Key | Value  |
+|:-----|:--------:|
+| DATABASE_URL | Your database_url|
+|  SECRET_KEY  |  Your Secret_Key |
+
+8. Comment out the current database setting in settings.py, and add the code below instead. This is done temporarily to migrate the database on Heroku.
+
+``` py
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+```
+9. Migrate the database models to the Postgres database using the following commands in the terminal: python3 manage.py migrate
+10. Create a superuser for the Postgres database by running the following command: python3 manage.py createsuperuser
+Create an eviroment variables file calle 'env.py' and use the code below:
+
+``` py
+import os
+
+os.environ.setdefault(
+    "DATABASE_URL",
+    "<your database_url>"
+)
+
+os.environ.setdefault(
+    "SECRET_KEY",
+    "<your secret_key>"
+)
+```
+11. Add .herokuapp.com', 'localhost'', to ALLOWED_HOSTS in settings.py.
+``` py
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
+```
+12. Commit all the changes to Heroku.
+
+**Automatic Deploy on Heroku**
+You can enable automatic deploy in the following steps that pushes update to Heroku everytime you push to github.
+
+1. Go to Deploy in Heroku dashboard.
+2. At Automatic deploys, choose a github repository you want to deploy.
+3. Click Enable Automatic Deploys.
+
+**Local Deployment**
+For local deployment, you need to have an IDE (I used Gitpod for this project) and you need to install the following:
+
+1. In the IDE you are using, clone this repository:
+
+  - Go to the GitHub Repository. Click the Code button and copy the link.
+  - In Gitpod, type "git clone repository link copied.git" and enter.
+  - Install all the required packages with pip3 install -r requirements.txt
+
+2. Migrate the models to create a database using in your IDE with python3 manage.py makemigrations and python3 manage.py migrate
+3. Create a superuser for the Postgres database by running with python3 manage.py createsuperuser
+4. Now you can access the app using the command python3 manage.py runserver
+
+## Credits
+
+- ChatGPT has assisted for text/paragraphs and information for Breakfast Ball webpage.
+- Used Code Institutes Project 4 Blog to assist with forms
+
+## Acknowledgements
+
+Thank you to my mentor Harry Dhillon for advice and helping reveiw my work.
