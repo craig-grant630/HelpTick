@@ -14,7 +14,7 @@
                 <form class="p-4 p-md-5 border rounded-3 bg-light shadows" method="POST">
                     {% csrf_token %}
                     <div class="form-floating mb-3">
-                        {% render_field form.engineer class="form-control" %}
+                        {% render_field form.engineer class="form-control" id="floatingInput" %}
                         <label for="floatingInput">Engineer</label>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">
@@ -24,4 +24,5 @@
             </div>
         </div>
     </div>
-    {% endblock content %}
+</div>
+{% endblock content %}
