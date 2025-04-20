@@ -751,9 +751,29 @@ During testing, each story is evaluated to ensure that the implemented feature m
 
 ### Validators
 
-HTML Validation - tools used [W3C Markup Validation Service](https://validator.w3.org/)
+**HTML Validation** - tools used: [W3C Markup Validation Service](https://validator.w3.org/)
 
 This tool was used for all pages that are accessable in the deployed application. To test the app:
 
 - Browser DevTools → "Elements" + "Inspect" + "View Source".
-- Input the HTML code into the validator to ensure correct code.
+- Input the HTML code into the validator to ensure correct code. **(Pass)**
+
+**Note:** A warning displayed "Section lacks heading" but this was actively ignored.
+
+**CSS Validation** - tools used: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+This tool was used for all custom CSS in the application. To test this:
+
+- Directly input the custom CSS code into the validator. **(Pass)**
+
+**JS Validation** - tools used: [JSHint](https://jshint.com/)
+
+This tool was used for all custom JS in the application. To test this:
+
+- Directly input the custom JS code into the validator. **(Pass)**
+
+Python Validator - tools used: [CI Python Code validator](https://pep8ci.herokuapp.com/#)
+
+This tool was used for all custom Python in the application. To test this:
+
+- Directly input the custom JS code into the validator. **(Pass)**
