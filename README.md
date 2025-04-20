@@ -763,6 +763,68 @@ During testing, each story is evaluated to ensure that the implemented feature m
 
 </details>
 
+### Refactoring
+
+Footer could be refactored to make sure there is no repeated code:
+
+To avoid code duplication and improve maintainability, the footer should be modularized into its own template. Due to limited submission time, this was not implemented, but here's the approach I would take:
+
+1. Create a Reusable Footer Template
+Create a new file under the templates directory:
+
+**templates/footer.html:**
+
+2. Add the footer code used in this aplication into the newly created footer template:
+ ```
+<footer>
+        <div class="container">
+            <section class="mb-4">
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon facebook"
+                    href="https://www.Facebook.com/" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our facebook page(opens in new tab)">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon twitter"
+                    href="https://x.com/?lang=en" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our twitter page(opens in new tab)">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon google"
+                    href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwiAj_atsNCMAxWQVUEAHeZRBEQQPAgI"
+                    role="button" target="_blank" rel="noopener" aria-label="Visity our google page(opens in new tab)">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon instagram"
+                    href="https://www.instagram.com/" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our instagram page(opens in new tab)">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon linkedin"
+                    href="https://uk.linkedin.com/" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our linkedin page(opens in new tab)">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1 social-icon github"
+                    href="https://github.com/" role="button" target="_blank" rel="noopener"
+                    aria-label="Visity our github page(opens in new tab)">
+                    <i class="fab fa-github"></i>
+                </a>
+            </section>
+        </div>
+    </footer>
+
+```
+2. Include Footer Template in Base Layout
+In your base template (base.html or equivalent):
+```
+html
+{% include 'footer.html' %}
+
+```
+
+This will inject the footer wherever you need it without repeating code.
+
+
 ### Validators
 
 **HTML Validation** - tools used: [W3C Markup Validation Service](https://validator.w3.org/)
