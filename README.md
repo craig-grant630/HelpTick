@@ -435,3 +435,105 @@ During testing, each story is evaluated to ensure that the implemented feature m
 <ins>Customer Active Tickets</ins>
 
 <img src="./documents/features/customeractivetickets.png" width="700" />
+
+<details>
+
+<summary>Customer Active Tickets Test</summary>
+
+`Ticket List Visibility`
+- Expected Result: Active tickets are listed in a card layout with clear ticket titles and status badges. **(Pass)**
+
+`Status Filtering`
+- Confirm only tickets with status Pending or Active are shown in the “Active Tickets” section.
+- Expected Result: Tickets marked as Resolved are not visible in this section. **(Pass)**
+
+`Ticket Details Navigation`
+
+- Click on a ticket to view more details.
+- Expected Result: Redirects to a detailed ticket view with description, creation date, and status.
+
+`Responsiveness`
+- View the active tickets section on various devices (desktop, tablet, mobile).
+- Expected Result: The layout adjusts gracefully without breaking or hiding information. **(Pass)**
+
+</details>
+<hr>
+
+<ins>Ticket Deatails Active/Pending<ins>
+
+<img src="./documents/features/customerpendingdetails.png" width="700" />
+
+<details>
+
+<summary>Ticket Details Active /Pending Page Tests</summary>
+
+`Ticket Information Display`
+- View the ticket's title, description, unique ID, customer, engineer, creation date, and severity.
+
+`Responsive Design`
+- View the ticket details on different screen sizes.
+- Expected Result: Layout remains clean and information is readable across all devices. **(Pass)**
+
+`Edit Description`
+- Click edit button to ensure form loads correctly. 
+- Ensure customer cannot submit form without the form being filled out. **(Pass)**
+- Click on the bo back button to ensure it takes you to the previuos page visited. **(Pass)**
+
+`Delete Button`
+- Ensure once clicked on delete button it navigates you to a confirmation page. **(Pass)**
+- Ensure the cancel button naviagtes you back to the active tickets. **(Pass)**
+- Ensure the submit button deletes the ticket and is not longer viewed on active tickets. **(Pass)**
+
+</details>
+<hr>
+
+<ins>Customer Resolved Tickets</ins>
+
+<img src="./documents/features/customerresolvedtickets.png" width="700" />
+
+<details>
+
+<summary>Customer Resolved Tickets Test</summary>
+
+`Ticket List Visibility`
+- Expected Result: Active tickets are listed in a card layout with clear ticket titles and status badges. **(Pass)**
+
+`Status Filtering`
+- Confirm only tickets with status Pending or Active are shown in the “Resolved Tickets” section.
+- Expected Result: Tickets marked as Active or Pending are not visible in this section. **(Pass)**
+
+`Ticket Details Navigation`
+
+- Click on a ticket to view more details.
+- Expected Result: Redirects to a detailed ticket view with description, creation date, and status. **(Pass)**
+
+`Responsiveness`
+- View the active tickets section on various devices (desktop, tablet, mobile).
+- Expected Result: The layout adjusts gracefully without breaking or hiding information. **(Pass)**
+
+</details>
+<hr>
+<ins>Ticket Details Resoloved Page</ins>
+
+<img src="./documents/features/customerresolveddetails.png" width="700" />
+
+<details>
+  
+<summary>Ticket Details Resolved Page Tests</summary>
+
+`Ticket Information Display`
+- View the ticket's title, description, unique ID, customer, engineer, creation date, and severity.**(Pass)**
+
+`Responsive Design`
+- View the ticket details on different screen sizes.
+- Expected Result: Layout remains clean and information is readable across all devices. **(Pass)**
+
+`Delete Button`
+- Ensure once clicked on delete button it navigates you to a confirmation page. **(Pass)**
+- Ensure the cancel button naviagtes you back to the active tickets. **(Pass)**
+- Ensure the submit button deletes the ticket and is not longer viewed on resolved tickets. **(Pass)**
+
+`No Edit Ability`
+- Ensure Oncecrolevd the customer can no longer edit the ticke unlike active or pending. **(Pass)**
+- 
+</details>
