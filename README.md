@@ -662,10 +662,98 @@ During testing, each story is evaluated to ensure that the implemented feature m
 - View the ticket details on different screen sizes.
 - Expected Result: Layout remains clean and information is readable across all devices. **(Pass)**
 
-`Edit Resolutin Button`
+`Edit Resolution Button`
 - Ensure once clicked on edit resolution resolve button it loads you to the resolve form. **(Pass)**
 - Ensure the resolve save button naviagtes you back to the ticket once form has been completed. **(Pass)**
 
+</details>
+
+<hr>
+
+<ins>Admins Dashboard<ins>
+
+<img src="./documents/features/admindash.png" width="400" /> 
+
+<details>
+
+<summary>Admins Dashboard Page Tests</summary>
+
+`Dashboard Access`
+
+- Log in using an admin account.
+- Expected Result: Admin is redirected to the admin dashboard after successful login. **(Pass)**
+
+`Navigation to Admin Features`
+- Ensure that ticket Queue button redirects tyo all tickets that have not been assigned an engineer. **(Pass)**
+
+`Navigation Bar`
+- Ensure Logout button securely logs the admin out of the system by clicking on logout. **(Pass)**
 
 </details>
 
+<hr>
+
+<ins>Admins Ticket Queue<ins>
+
+<img src="./documents/features/adminticketqueue.png" width="400" />
+
+<details>
+
+<summary>Admins Dashboard Page Tests</summary>
+
+`Ticket Queue Loading`
+
+- Log in as an admin and navigate to the ticket assignment section.
+- Expected Result: A table is displayed showing all unassigned tickets.
+- Check that each row displays the following:
+    - Ticket ID (as a clickable link)
+    - Ticket Title
+    - Customer Email
+    - Date Created
+    - Action button: “Assign to Engineer”
+- Expected Result: All details are accurate and dynamically loaded from the database. **(Pass)**
+
+`Ticket ID Link`
+- Click the Ticket ID.
+- Expected Result: Redirects to the detailed view of the selected ticket. **(Pass)**
+
+`Assign to Engineer Button`
+
+- Click “Assign to Engineer”.
+- Expected Result: Triggers an assignment form to select an engineer. **(Pass)**
+
+`Search Functionality`
+- Use the "Search by Ticket ID" input to filter tickets.
+- Expected Result: The table filters in real-time based on the input value.
+
+</details>
+
+<hr>
+
+<ins>Admins Ticket View Details<ins>
+
+ <img src="./documents/features/adminsticketdetails.png" width="400" />
+
+<details>
+
+<summary>Admins Ticket View Detail Tests</summary>
+
+`Responsiveness & Layout`
+
+- View on multiple screen sizes (desktop, tablet, mobile).
+- Expected Result: Components should realign properly without losing readability or structure. **(Pass)**
+
+`Page Load`
+- Ensure that all data has been dynamically pulled through from the database. **(Pass)**
+- Ensure that correct data is occupying the ticket details. **(Pass)**
+
+</details>
+
+### Validators
+
+HTML Validation - tools used [W3C Markup Validation Service](https://validator.w3.org/)
+
+This tool was used for all pages that are accessable in the deployed application. To test the app:
+
+- Browser DevTools → "Elements" + "Inspect" + "View Source".
+- Input the HTML code into the validator to ensure correct code.
