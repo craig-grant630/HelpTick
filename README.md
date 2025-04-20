@@ -907,6 +907,7 @@ ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
 12. Commit all the changes to Heroku.
 
 **Automatic Deploy on Heroku**
+
 You can enable automatic deploy in the following steps that pushes update to Heroku everytime you push to github.
 
 1. Go to Deploy in Heroku dashboard.
@@ -914,7 +915,6 @@ You can enable automatic deploy in the following steps that pushes update to Her
 3. Click Enable Automatic Deploys.
 
 **Local Deployment**
-For local deployment, you need to have an IDE (I used Gitpod for this project) and you need to install the following:
 
 1. In the IDE you are using, clone this repository:
 
