@@ -5,8 +5,13 @@ from django_summernote.admin import SummernoteModelAdmin
 
 
 class TicketAdmin(SummernoteModelAdmin):
-    list_display = ('ticket_id', 'ticket_title', 'customer', 'created_on', 'status')  # What fields to display in the list view
-    search_fields = ['ticket_id', 'ticket_title', 'customer__email']  # Make some fields searchable
-    list_filter = ['status', 'customer']  # Add filters for easier admin filtering
+    # What fields to display in the list view
+    list_display = ('ticket_id', 'ticket_title', 'customer', 'created_on',
+                    'status')
+    # Make some fields searchable
+    search_fields = ['ticket_id', 'ticket_title', 'customer__email']
+    # Add filters for easier admin filtering
+    list_filter = ['status', 'customer']
+
 
 admin.site.register(Ticket, TicketAdmin)
