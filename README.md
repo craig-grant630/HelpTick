@@ -393,11 +393,10 @@ During testing, each story is evaluated to ensure that the implemented feature m
 `Password Confirmation Mismatch:`
 
 - Enter different values in the password and confirm password fields.
-  - Expected Result: The form should not submit and display an error.**(Pass)**
+- Expected Result: The form should not submit and display an error.**(Pass)**
 
 </details>
 
-<hr>
 <ins>Customer Dashboard</ins>
 
 <img src="./documents/features/customerdash.png" width="700" />
@@ -535,5 +534,138 @@ During testing, each story is evaluated to ensure that the implemented feature m
 
 `No Edit Ability`
 - Ensure Oncecrolevd the customer can no longer edit the ticke unlike active or pending. **(Pass)**
-- 
+
 </details>
+
+<hr>
+
+<ins>Engineer Dashboard</ins>
+
+<img src="./documents/features/engineerdash.png" width="400" />
+
+<details>
+
+<summary>Customer Dashboard Tests</summary>
+
+`Dashboard Load`
+- Ensure the dashboard loads successfully after engineer login.
+- Expected Result: navigation menus and content appear without errors. **(Pass)**
+
+`Welcome Message`
+- Verify that the dashboard displays a personalized welcome message including the user email. **(Pass)**
+
+`Navigation bar`
+
+- Responsive Behavior: Resize the browser or use a mobile device to test responsiveness.
+  - Expected Result: Navbar collapses into a hamburger menu or adjusts layout cleanly. **(Pass)**
+- Links Routing: Click each nav item (e.g., HelpTick logo, Active Tickets, Resolved Tickets and Logout) and confirm redirection.
+  - Expected Result: Pages load correctly with appropriate content. **(Pass)**
+- Logout Button Test the logout link or button from the navbar.
+  - Expected Result: User is securely logged out and redirected to the login page. **(Pass)**
+
+`View Active Tickets`
+- Ensure View Active tickets button once clicked redirects you to Active Tickets Page. **(Pass)**
+
+</details>
+<hr>
+
+<ins>Engineer Active Tickets</ins>
+
+<img src="./documents/features/engineeractivetickets.png" width="700" />
+
+<details>
+
+<summary>Engineer Active Tickets Test</summary>
+
+`Ticket List Visibility`
+- Expected Result: Active tickets are listed in a card layout with clear ticket titles and status badges. **(Pass)**
+
+`Status Filtering`
+- Confirm only tickets with status of Active are shown in the “Active Tickets” section.
+- Expected Result: Tickets marked as Resolved are not visible in this section. **(Pass)**
+
+`Ticket Details Navigation`
+
+- Click on a ticket to view more details.
+- Expected Result: Redirects to a detailed ticket view with description, creation date, and status.
+
+`Responsiveness`
+- View the active tickets section on various devices (desktop, tablet, mobile).
+- Expected Result: The layout adjusts gracefully without breaking or hiding information. **(Pass)**
+
+</details>
+<hr>
+
+<ins>Engineer Ticket Details Active<ins>
+
+<img src="./documents/features/engineeractiveticketdetails.png" width="700" />
+
+<details>
+
+<summary>Ticket Details Active Page Tests</summary>
+
+`Ticket Information Display`
+- View the ticket's title, description, unique ID, customer, engineer, creation date, and severity.
+
+`Responsive Design`
+- View the ticket details on different screen sizes.
+- Expected Result: Layout remains clean and information is readable across all devices. **(Pass)**
+
+`Resolve Button`
+- Ensure once clicked on resolve button it loads you to the resolve form. **(Pass)**
+- Ensure the resolve save button naviagtes you back to the ticket once form has been filled out. **(Pass)**
+
+
+</details>
+<hr>
+
+<ins>Engineer Resolved Tickets</ins>
+
+<img src="./documents/features/engineerresolvedtickets.png" width="700" />
+
+<details>
+
+<summary>Engineer Resolved Tickets Test</summary>
+
+`Ticket List Visibility`
+- Expected Result: Active tickets are listed in a card layout with clear ticket titles and status badges. **(Pass)**
+
+`Status Filtering`
+- Confirm only tickets with status of resolved are shown in the “Resolved Tickets” section.
+- Expected Result: Tickets marked as Resolved are visible in this section. **(Pass)**
+
+`Ticket Details Navigation`
+
+- Click on a ticket to view more details.
+- Expected Result: Redirects to a detailed ticket view with description, creation date, and status.
+
+`Responsiveness`
+- View the active tickets section on various devices (desktop, tablet, mobile).
+- Expected Result: The layout adjusts gracefully without breaking or hiding information. **(Pass)**
+
+</details>
+
+<hr>
+
+<ins>Engineer Ticket Details Resolved<ins>
+
+<img src="./documents/features/engineerresolvedticketdetails.png" width="700" /> 
+
+<details>
+
+<summary>Engineer Ticket Details Resolved Page Tests</summary>
+
+`Ticket Information Display`
+- View the ticket's title, description, unique ID, customer, engineer, creation date, and severity.
+
+`Responsive Design`
+- View the ticket details on different screen sizes.
+- Expected Result: Layout remains clean and information is readable across all devices. **(Pass)**
+
+`Edit Resolutin Button`
+- Ensure once clicked on edit resolution resolve button it loads you to the resolve form. **(Pass)**
+- Ensure the resolve save button naviagtes you back to the ticket once form has been completed. **(Pass)**
+
+
+</details>
+
