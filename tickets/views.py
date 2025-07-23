@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 from .forms import CreateTicketForm, AssignTicketForm, EditTicketForm
 from .models import Ticket
@@ -13,6 +14,7 @@ User = get_user_model()
 
 
 # Create Tickets View
+@login_required
 def create_ticket(request):
     if request.method == 'POST':
         form = CreateTicketForm(request.POST)
@@ -43,7 +45,7 @@ def create_ticket(request):
         context = {'form': form}
         return render(request, 'tickets/create_ticket.html', context)
 
-
+@login_required
 def customer_active_tickets(request):
     ticket_list = Ticket.objects.filter(
         customer=request.user,
@@ -61,13 +63,23 @@ def customer_active_tickets(request):
     }
     return render(request, 'tickets/customer_active_tickets.html', context)
 
-
+@login_required
 def ticket_details(request, ticket_id):
     ticket = Ticket.objects.get(ticket_id=ticket_id)
+    if (
+        request.user != ticket.customer and
+        request.user != ticket.engineer and
+        not request.user.is_superuser
+    ):
+        messages.error(request, "You are not allowed to edit this ticket.")
+        return redirect('dashboard')
     return render(request, 'tickets/ticket_details.html', {'ticket': ticket})
 
-
+@login_required
 def ticket_queue(request):
+    if not request.user.is_superuser:
+        messages.error(request, "You are not allowed to view this page")
+        return redirect('dashboard')
     search_query = request.GET.get('search', '')
     tickets = Ticket.objects.filter(
         is_assigned_to_engineer=False,
@@ -82,8 +94,11 @@ def ticket_queue(request):
         {'tickets': tickets, 'search_query': search_query}
     )
 
-
+@login_required
 def assign_ticket(request, ticket_id):
+    if not request.user.is_superuser:
+        messages.error(request, "You are not allowed to view this page")
+        return redirect('dashboard')
     ticket = Ticket.objects.get(ticket_id=ticket_id)
     if request.method == 'POST':
         form = AssignTicketForm(request.POST, instance=ticket)
@@ -114,8 +129,11 @@ def assign_ticket(request, ticket_id):
             {'form': form, 'ticket': ticket}
         )
 
-
+@login_required
 def engineer_active_tickets(request):
+    if not request.user.is_engineer and not request.user.is_superuser:
+        messages.error(request, "You are not allowed to view this page")
+        return redirect('dashboard')
     ticket_list = Ticket.objects.filter(
         engineer=request.user,
         is_resolved=False
@@ -132,9 +150,15 @@ def engineer_active_tickets(request):
     }
     return render(request, 'tickets/engineer_active_tickets.html', context)
 
-
+@login_required
 def resolve_ticket(request, ticket_id):
     ticket = Ticket.objects.get(ticket_id=ticket_id)
+    if (
+    request.user != ticket.engineer and
+    not request.user.is_superuser
+    ):
+        messages.error(request, "You are not allowed to edit this ticket.")
+        return redirect('dashboard')
     if request.method == 'POST':
         rs = request.POST.get('rs')
         ticket.resolution_steps = rs
@@ -144,7 +168,7 @@ def resolve_ticket(request, ticket_id):
         messages.success(request, 'Ticket is now resolved and closed')
         return redirect('dashboard')
 
-
+@login_required
 def customer_resolved_tickets(request):
     ticket_list = Ticket.objects.filter(
         customer=request.user,
@@ -162,8 +186,11 @@ def customer_resolved_tickets(request):
     }
     return render(request, 'tickets/customer_resolved_tickets.html', context)
 
-
+@login_required
 def engineer_resolved_tickets(request):
+    if not request.user.is_engineer and not request.user.is_superuser:
+        messages.error(request, "You are not allowed to view this page")
+        return redirect('dashboard')
     ticket_list = Ticket.objects.filter(
         engineer=request.user,
         is_resolved=True
@@ -180,9 +207,12 @@ def engineer_resolved_tickets(request):
     }
     return render(request, 'tickets/engineer_resolved_tickets.html', context)
 
-
+@login_required
 def delete_ticket(request, ticket_id):
     ticket = Ticket.objects.get(ticket_id=ticket_id)
+    if request.user != ticket.customer:
+        messages.error(request, "You are not allowed to edit this ticket.")
+        return redirect('dashboard')
     if request.method == 'POST':
         ticket.delete()
         messages.success(request, "Your ticket has been deleted.")
@@ -193,10 +223,12 @@ def delete_ticket(request, ticket_id):
         {'tickets': ticket}
     )
 
-
+@login_required
 def edit_ticket_description(request, ticket_id):
     ticket = Ticket.objects.get(ticket_id=ticket_id)
-
+    if request.user != ticket.customer:
+        messages.error(request, "You are not allowed to edit this ticket.")
+        return redirect('dashboard')
     if request.method == 'POST':
         form = EditTicketForm(request.POST, instance=ticket)
         if form.is_valid():
