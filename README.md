@@ -167,6 +167,10 @@ Primary Buttons: **#007bff**
 
 <img src="./documents/readme/secondarycolours.png" width="300" />
 
+**Imagery**
+
+Imagery was intentionally excluded from this project to emphasise functionality over aesthetics. The design adopts a utilitarian style, focusing on clarity, efficiency, and ease of navigation for all user roles. This approach ensures that users can complete tasks without distraction, making the system intuitive and accessible, especially in a professional or task-oriented environment where visual simplicity enhances usability.
+
 ### Features
 
 <ins>Authourization Pages</ins>
